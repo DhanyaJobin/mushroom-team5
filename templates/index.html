@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is the Mushroom edible??</title>
+   <link rel="stylesheet" type="text/css" href="url({{ url_for('static', filename='style.css')}})">
+    
+</head >
+<body style="background-image: url({{ url_for('static',filename='DifferentMushrooms.jpg')}}); background-size: cover " ></body>
+  <br> 
+  <br> 
+<header>
+    <h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;font-weight: bolder; background-color:white;">Is Mushroom Edible?</h1>
+</header> 
+<div>
+    <p>
+        <br>
+        <br>
+       <h2 style="color: white; text-align: center; font-weight: lighter;"> Mushrooms come in lots of different shapes, sizes, and colors. The ones that aren’t toxic happen to be quite healthy, and tasty too.For many years they’ve been used for their unique ability to add flavor in lots of different cultures’ cuisines. Although they’re actually fungi, mushrooms are lumped in the vegetable category for cooking purposes. Mushrooms allow you to add extra taste without sodium or fat,
+        Poisonous mushrooms can be hard to identify in the wild.</h2>
+    </p>
+    <br>
+</div>  
+ <div class="part1" style="cursor: inherit; text-align: center;">
+    
+     <ul>
+         <li> <a href="mushroom"  style="color: white;font-size: 22px"> More On Mushroom</a></li>
+         <br>
+         <br>
+         <li> <a href="nutrient"  style="color: white; font-size: 22px">Nutrient Powerhouse</a></li>
+         <br>
+         <br>
+         <li ><a href="listt"  style="color: white; font-size: 22px">Attribute informations</a></li>
+     </ul>
+ </div>
+<br>
+<br>
+    
+    
+
+        
+<header><h1 style=" text-align: center; background-color: white; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bolder;">Check Mushroom Quality</h1></header>
+<br>
+<br>
+<div class="part3" style="text-align: center; color:white">
+
+<!-- Main Input For Receiving Query to our ML -->
+<form action="{{ url_for('predict')}}"method="post">
+ <label for="cap-shape">cap-shape</label>
+    <select  id="cap-shape" name="cap-shape" > 
+        <option selected disabled>Choose here</option>
+        <option value="0">Bell</option> 
+        <option value="1">Conical</option> 
+        <option value="2">Convex</option> 
+        <option value="3">Flat</option> 
+        <option value="4">Knobbed</option> 
+        <option value="5">Sunken</option>  
+    </select> 
+    <label for="cap-surface">cap-surface</label>
+    <select id="cap-surface" name="cap-surface"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">Fibrous</option> 
+        <option value="1">Grooves</option> 
+        <option value="2">Scaley</option> 
+        <option value="3">Smooth</option>  
+    </select>
+    <label for="cap-color">cap-color</label>
+    <select id="cap-color" name="cap-color"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">brown</option> 
+        <option value="1">buff</option> 
+        <option value="2">cinnamon</option> 
+        <option value="3">gray</option>  
+        <option value="4">green</option> 
+        <option value="5">pink</option> 
+        <option value="6">purple</option> 
+        <option value="7">red</option> 
+        <option value="8">white</option> 
+        <option value="9">yellow</option> 
+    </select>
+    <label for="bruises">bruises</label>
+    <select id="bruises" name="bruises"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">bruises</option> 
+        <option value="1">no</option> 
+    </select>
+
+<label for="odor">odor</label>
+    <select id="odor" name="odor"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">almond</option> 
+        <option value="1">anise</option> 
+        <option value="2">creosote</option> 
+        <option value="3">fishy</option>  
+        <option value="4">foul</option> 
+        <option value="5">musty</option> 
+        <option value="6">none</option> 
+        <option value="7">pungent</option> 
+        <option value="8">spicy</option> 
+       
+    </select>
+    <br>
+    <br>
+    <label for="gill-attachment">gill-attachment</label>
+    <select id="gill-attachment" name="gill-attachment"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">attached</option> 
+        <option value="1">descending</option> 
+        <option value="2">free</option> 
+        <option value="3">notched</option>  
+    </select>
+    <label for="gill-spacing">gill-spacing</label>
+    <select id="gill-spacing" name="gill-spacing"> 
+       <option selected disabled>Choose here</option>
+        <option value="0">close</option> 
+        <option value="1">crowded</option> 
+        <option value="2">distant</option> 
+    </select>    
+    <label for="gill-size">gill-size</label>
+    <select id="gill-size" name="gill-size"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">broad</option> 
+        <option value="1">narrow</option> 
+    </select>
+    
+    <label for="gill-color">gill-color</label>
+    <select id="gill-color" name="gill-color"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">black</option>
+        <option value="1">brown</option>
+        <option value="2">buff</option> 
+        <option value="3">chocolate</option> 
+        <option value="4">gray</option>  
+        <option value="5">green</option> 
+        <option value="6">orange</option>
+        <option value="7">pink</option> 
+        <option value="8">purple</option> 
+        <option value="9">red</option> 
+        <option value="10">white</option> 
+        <option value="11">yellow</option> 
+    </select>
+    <br>
+    <br>
+    <label for="stalk-shape">stalk-shape</label>
+    <select id="stalk-shape" name="stalk-shape"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">enlarging</option> 
+        <option value="1">tapering</option> 
+    </select>
+    <label for="stalk-root">stalk-root</label>
+    <select id="stalk-root" name="stalk-root"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">bulbous</option> 
+        <option value="1">club</option> 
+        <option value="2">creosote</option> 
+        <option value="3">cup</option>  
+        <option value="4">equal</option> 
+        <option value="5">rhizomorphs</option> 
+        <option value="6">rooted</option> 
+        <option value="7">missing</option>   
+    </select>
+    <label for="stalk-surface-above-ring">stalk-surface-above-ring</label>
+    <select id="stalk-surface-above-ring" name="stalk-surface-above-ring"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">fibrous</option> 
+        <option value="1">scaly</option> 
+        <option value="2">silky</option> 
+        <option value="3">smooth</option>   
+    </select>
+    <br>
+    <br>
+    <label for="stalk-surface-below-ring">stalk-surface-below-ring</label>
+    <select id="stalk-surface-below-ring" name="stalk-surface-below-ring"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">fibrous</option> 
+        <option value="1">scaly</option> 
+        <option value="2">silky</option> 
+        <option value="3">smooth</option>   
+    </select>
+    <label for="stalk-color-above-ring">stalk-color-above-ring</label>
+    <select id="stalk-color-above-ring" name="stalk-color-above-ring"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">brown</option> 
+        <option value="1">buff</option> 
+        <option value="2">cinnamon</option> 
+        <option value="3">gray</option>  
+        <option value="4">orange</option> 
+        <option value="5">pink</option> 
+        <option value="6">red</option> 
+        <option value="7">white</option> 
+        <option value="8">yellow</option> 
+    </select>
+    <label for="stalk-color-below-ring">stalk-color-below-ring</label>
+    <select id="stalk-color-below-ring" name="stalk-color-below-ring"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">brown</option> 
+        <option value="1">buff</option> 
+        <option value="2">cinnamon</option> 
+        <option value="3">gray</option>  
+        <option value="4">orange</option> 
+        <option value="5">pink</option> 
+        <option value="6">red</option> 
+        <option value="7">white</option> 
+        <option value="8">yellow</option> 
+    </select>
+     <br>
+    <br>
+    <label for="veil-color">veil-color</label>
+    <select id="veil-color" name="veil-color"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">brown</option> 
+        <option value="1">orange</option> 
+        <option value="2">white</option> 
+        <option value="3">yellow</option>
+    </select>
+   
+    <label for="ring-number">ring-number</label>
+    <select id="ring-number" name="ring-number"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">none</option> 
+        <option value="1">one</option> 
+        <option value="2">two</option> 
+    </select>
+    <label for="ring-type">ring-type</label>
+    <select id="ring-type" name="ring-type"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">cobwebby</option> 
+        <option value="1">evanescent</option> 
+        <option value="2">flaring</option> 
+        <option value="3">large</option>  
+        <option value="4">none</option> 
+        <option value="5">pendant</option> 
+        <option value="6">sheathing</option> 
+        <option value="7">zone</option> 
+    </select>
+    <label for="spore-print-color">spore-print-color</label>
+    <select id="spore-print-color" name="spore-print-color"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">black</option>
+        <option value="1">brown</option>
+        <option value="2">buff</option> 
+        <option value="3">chocolate</option> 
+        <option value="4">green</option> 
+        <option value="5">orange</option>
+        <option value="6">purple</option> 
+        <option value="7">white</option> 
+        <option value="8">yellow</option> 
+    </select>
+     <br>
+    <br>
+    <label for="population">population</label>
+    <select id="population" name="population"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">abundant</option>
+        <option value="1">clustered</option>
+        <option value="2">numerous</option> 
+        <option value="3">scattered</option> 
+        <option value="4">several</option> 
+        <option value="5">solitary</option>
+    </select>
+   
+    <label for="habitat">habitat</label>
+    <select id="habitat" name="habitat"> 
+        <option selected disabled>Choose here</option>
+        <option value="0">grasses</option>
+        <option value="1">leaves</option>
+        <option value="2">meadows</option> 
+        <option value="3">paths</option> 
+        <option value="4">urban</option> 
+        <option value="5">waste</option>
+        <option value="6">woods</option>
+    </select>
+<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+</form>
+<br>
+<br>
+{{ prediction_text }}
+</div>
+    </div>
+    
+</body>
+</html>
